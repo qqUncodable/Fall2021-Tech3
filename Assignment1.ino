@@ -13,20 +13,6 @@ Adafruit_NeoPixel strip(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
 uint8_t colorR = 0,colorG = 0,colorB = 255;
 
-
-/*
-* Function       color_led
-* @author        Jessica
-* @date          2019.8.21  
-* @brief         由R,G,B三色的不同组合形成7种不同的色彩   
-* @param[in1]    Red开关
-* @param[in2]    Green开关
-* @param[in3]    Blue开关
-* @retval        void
-* @par History   无
-*/
-
-
 void setup()
 {
 	uint8_t error = 0;
@@ -88,7 +74,7 @@ void loop()
 					delay(GES_QUIT_TIME);
 				}
 				else{
-          //color_led(OFF, ON, OFF);//绿
+          //color_led(OFF, ON, OFF);//
 					Serial.println("Left");
 				}          
 				break;
@@ -107,7 +93,7 @@ void loop()
 					delay(GES_QUIT_TIME);
 				}
 				else{
-          //color_led(OFF, OFF, ON);//蓝
+          //color_led(OFF, OFF, ON);
 					Serial.println("Up");
 				}          
 				break;
@@ -126,19 +112,19 @@ void loop()
 					delay(GES_QUIT_TIME);
 				}
 				else{
-          //color_led(ON, ON, OFF);//黄
+          //color_led(ON, ON, OFF);//
 					Serial.println("Down");
 				}          
 				break;
         
 			case GES_FORWARD_FLAG:
-        //color_led(ON, OFF, ON);//紫
+        //color_led(ON, OFF, ON);//
 				Serial.println("Forward");
 				delay(GES_QUIT_TIME);
 				break;
         
 			case GES_BACKWARD_FLAG:	
-        //color_led(OFF, ON, ON);//天蓝	  
+        //color_led(OFF, ON, ON);//  
 				Serial.println("Backward");
 				delay(GES_QUIT_TIME);
 				break;
@@ -154,7 +140,7 @@ void loop()
 			default:
 				paj7620ReadReg(0x44, 1, &data1);
 				if (data1 == GES_WAVE_FLAG){
-          //color_led(OFF, OFF, OFF);//灭
+          //color_led(OFF, OFF, OFF);//
           for(int i=0; i<strip.numPixels(); i++) { 
         strip.setPixelColor(i, strip.Color(0,0,0));
         strip.show();}
